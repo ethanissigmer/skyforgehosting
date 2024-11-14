@@ -1,183 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<meta content="SkyForge Hosting" property="og:title" />
-<meta content="SkyForge Hosting provides affordable Discord bot hosting and Minecraft hosting services. We offer paid Discord bot hosting plans, making it easier for smaller developers to get started. Explore our reliable and budget-friendly hosting solutions today." property="og:description" />
-<meta content="https://skyforgehosting.xyz/" property="og:url" />
-<meta content="https://skyforgehosting.xyz/skyforge.png" property="og:image" />
-<meta content="#301934" data-react-helmet="true" name="theme-color" />
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyForge Hosting!</title>
-    <link rel="icon" type="image/x-icon" href="./skyforge.png">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1e1e1e;
-            color: #ffffff;
-            margin: 0;
-            padding: 20px;
-        }
-        header {
-            position: relative;
-            padding: 20px;
-            text-align: center; /* Center the header content */
-        }
-        header img {
-            width: 150px; /* Adjust size as needed */
-        }
-        h1 {
-            color: #00bcd4;
-            font-size: 2.5em;
-            margin-top: 20px; /* Adjust margin to create space for the logo */
-        }
-        .button-container {
-            margin-top: 20px; /* Space between title and buttons */
-        }
-        .button {
-            background-color: #357ab8;
-            color: #ffffff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            margin: 0 10px; /* Space between buttons */
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #2a5e8c;
-        }
-        .package {
-            background-color: #2c2c2c;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-        .features {
-            margin: 10px 0;
-        }
-        .features ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .features li {
-            margin: 5px 0;
-            font-size: 1.1em;
-        }
-        .cta {
-            text-align: center;
-            margin: 20px 0;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #bbb;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyForge Hosting</title>
+  <link rel="stylesheet" href="styles.css">
+  
+
+
 </head>
 <body>
+<!-- Topbar -->
+<div class="topbar">
+  <div class="logo">SkyForge Hosting</div>
+  
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="https://skyforgehosting.xyz/rules">Rules</a></li>
+    <li><a href="#">Game Servers</a></li>
+    <li><a href="#">Web Hosting</a></li>
+    <!-- <li><a href="#">DDoS Protection</a></li> -->
+  </ul>
+</div>
 
-<header>
-    <img src="skyforge.png" alt="SkyForge Hosting Logo">
-    <h1>🚀 Exciting News! 🚀</h1>
-    <div class="button-container">
-        <a href="index.html" class="button">Home</a>
-        <a href="rules.html" class="button">Rules</a>
+
+  <!-- Main Banner Section -->
+  <section class="banner">
+    <div class="game-banner" id="gameBanner">
+        <img id="gameImage" src="https://eip.gg/wp-content/uploads/2022/08/The-Dome-scaled.jpg" alt="Rust Hosting Banner">
+        <div class="game-info-overlay">
+            <h1 id="gameTitle">Rust Hosting</h1>
+            <p id="gameQuote">Fast and reliable Rust hosting for all your server needs.</p>
+            <a href="https://discord.gg/ksDEB4H7Xd" class="buy-btn">Buy Now</a>
+        </div>
     </div>
-</header>
+    <div class="game-selector">
+        <button class="game-btn" onclick="selectGame('Rust')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX-R3vi64-Y5POkTVvT7knVx4DV6uU_bkj2g&s" alt="Rust Button">
+        </button>
+        <!-- <button class="game-btn" onclick="selectGame('Unturned')">
+            <img src="https://media.licdn.com/dms/image/D5612AQHt-Y26_Im7IA/article-cover_image-shrink_720_1280/0/1714463825421?e=2147483647&v=beta&t=tziCy9eNtdHvurhoCp00iuHTdG0gUpa8zI2CHZ2ToLg" alt="Unturned Button">
+        </button> -->
+        <button class="game-btn" onclick="selectGame('Minecraft')">
+            <img src="https://m.media-amazon.com/images/M/MV5BYWIzYjUzMGUtZjJlNy00MWVlLWJjNGEtODU1OWFiOWIwOTFjXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg" alt="Minecraft Button">
+        </button>
+    </div>
+</section>
 
-<main>
-    <section class="package">
-        <h2>Introducing Our new Paid Service!</h2>
-        <p>Perfect for gamers and developers alike, our small bot package includes:</p>
-        <div class="features">
-            <ul>
-                <li>✨ 1 GB RAM</li>
-                <li>⚙️ 1 vCore</li>
-                <li>💾 5 GB Storage</li>
-                <li>🕛 24/7 Uptime</li>
-                <li>🔧 Specifications customizable up to your needs!</li>
-            </ul>
-        </div>
-        <p>Get your server up and running with ease! Whether you're hosting a bot or a project, our reliable service has you covered.</p>
-    </section>
+<!-- Services Section with Title -->
+<section class="services-container">
+    <h1 class="section-title">Services</h1>
+    <div class="services">
+      <div class="service-card">
+        <h2>Game Hosting</h2>
+        <p class="price">Starting from <strong>£9/month</strong></p>
+        <ul class="specs">
+          <li>● High-performance servers</li>
+          <li>● SSD Storage</li>
+          <li>● Unlimited Bandwidth</li>
+        </ul>
+        <a href="#" class="view-pricing">View Pricing →</a>
+      </div>
+  
+  
+      <div class="service-card">
+        <h2>Project/Bot Hosting</h2>
+        <p class="price">Starting from <strong>£5/month</strong></p>
+        <ul class="specs">
+          <li>● Free SSL Certificate</li>
+          <li>● 24/7 Support</li>
+          <li>● Unlimited Websites</li>
+        </ul>
+        <a href="#" class="view-pricing">View Pricing →</a>
+      </div>
+    </div>
+  </section>
 
-    <section class="package">
-        <h2>🐛 Types of Servers 🐛</h2>
-        <div class="features">
-            <ul>
-                <li>Python Server</li>
-                <li>Node.js Server</li>
-                <li>Rust Server (the coding language)</li>
-                <li>Lua Server</li>
-                <li>Java Server</li>
-                <li>C# Server</li>
-                <li>Bun Server</li>
-            </ul>
-        </div>
-    </section>
+  
+  <!-- FAQ Section -->
+<section class="faq-container">
+  <h1 class="faq-title">Frequently Asked Questions</h1>
+  <div class="faq-item">
+    <button class="faq-question">What is SkyForge Hosting?</button>
+    <div class="faq-answer">
+      <p>SkyForge Hosting is a fast, reliable hosting service that provides strong DDOS Protection and also fast servers and the best uptime.</p>
+    </div>
+  </div>
 
-    <section class="package">
-        <h2>🌟 Minecraft Hosting Packages 🌟</h2>
-        <p>We’re thrilled to announce our new Minecraft server packages:</p>
-        <div class="features">
-            <h3>Wood Tier</h3>
-            <ul>
-                <li>✨ 4 GB RAM</li>
-                <li>⚙️ 2 vCore</li>
-                <li>💾 60 GB Storage (SSD)</li>
-                <li>🕛 24/7 Uptime</li>
-                <li>💸 £9</li>
-                <li>🧑‍🦲 Perfect for 10+ players</li>
-            </ul>
+  <div class="faq-item">
+    <button class="faq-question">How do I contact support?</button>
+    <div class="faq-answer">
+      <p>You can reach our support team via email at support@skyforgehosting.xyz, or through our Discord channel for real-time assistance.</p>
+    </div>
+  </div>
 
-            <h3>Stone Tier</h3>
-            <ul>
-                <li>✨ 8 GB RAM</li>
-                <li>⚙️ 4 vCore</li>
-                <li>💾 120 GB Storage (SSD)</li>
-                <li>🕛 24/7 Uptime</li>
-                <li>💸 £15</li>
-                <li>🧑‍🦲 Perfect for 20+ players</li>
-            </ul>
+  <div class="faq-item">
+    <button class="faq-question">What payment methods do you accept?</button>
+    <div class="faq-answer">
+      <p>We accept PayPal.</p>
+    </div>
+  </div>
+</section>
+  
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-content">
+      <p>© Bandit Host</p>
+      <div class="social-icons">
+        <a href="https://discord.gg/ksDEB4H7Xd"><img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="Discord Logo"></a>
+        <!-- <a href="#"><img src="https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726099200&semt=ais_hybrid" alt="X Logo"></a> -->
+      </div>
+      <div class="emails">
+        <a href="mailto:support@skyforgehosting.xyz">support@skyforgehosting.xyz</a>
+        <a href="mailto:legal@skyforgehosting.xyz">legal@skyforgehosting.xyz</a>
+        <a href="mailto:corporate@skyforgehosting.xyz">corporate@skyforgehosting.xyz</a>
+      </div>      
+    </div>
+  </footer>
 
-            <h3>Diamond Tier</h3>
-            <ul>
-                <li>✨ 16 GB RAM</li>
-                <li>⚙️ 8 vCore</li>
-                <li>💾 240 GB Storage (SSD)</li>
-                <li>🕛 24/7 Uptime</li>
-                <li>💸 £29</li>
-                <li>🧑‍🦲 Perfect for 50+ players</li>
-            </ul>
-
-            <h3>Netherite Tier</h3>
-            <ul>
-                <li>✨ 24 GB RAM</li>
-                <li>⚙️ 12 vCore</li>
-                <li>💾 480 GB Storage (SSD)</li>
-                <li>🕛 24/7 Uptime</li>
-                <li>💸 £49</li>
-                <li>🧑‍🦲 Perfect for 100+ players</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="cta">
-        <h2>🌟 Limited Time Offer!</h2>
-        <p>Sign up now and enjoy seamless performance at an unbeatable price!</p>
-        <a href="https://discord.gg/VvwwC6ktUA">Purchase here</a>
-        <p>Don’t miss out on this fantastic opportunity! Let’s get your server started today! 🎉</p>
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2024 SkyForge Hosting. All rights reserved.</p>
-</footer>
-
+  <script src="scripts.js"></script>
 </body>
 </html>

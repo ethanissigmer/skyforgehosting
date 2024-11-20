@@ -4,10 +4,10 @@ function selectGame(game) {
     let gameQuote = document.getElementById('gameQuote');
   
     switch (game) {
-      case 'Rust':
-        gameImage.src = 'https://eip.gg/wp-content/uploads/2022/08/The-Dome-scaled.jpg';
-        gameTitle.innerText = 'Rust Hosting';
-        gameQuote.innerText = 'Fast and reliable Rust hosting for all your server needs.';
+      case 'FiveM':
+        gameImage.src = 'https://ultahost.com/blog/wp-content/uploads/2024/08/fiveM1-1024x577.jpg';
+        gameTitle.innerText = 'FiveM Hosting';
+        gameQuote.innerText = 'The most unbeatable uptime, perfomance and prices for FiveM Hosting';
         break;
       case 'Unturned':
         gameImage.src = 'https://dotesports.com/wp-content/uploads/2024/05/Arid-1.jpg';

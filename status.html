@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyForge Hosting Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #status {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .online {
+            color: green;
+        }
+
+        .offline {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SkyForge Hosting Node Status</h1>
+    </header>
+    <main>
+        <section id="status">
+            <h2>Node Status</h2>
+            <ul id="node-list"></ul>
+        </section>
+    </main>
+
+    <script>
+        const urlToPing = 'http://45.11.229.97';
+
+        async function checkServerStatus() {
+            try {
+                const response = await fetch(urlToPing, { method: 'GET', mode: 'no-cors' });
+                // Check if the response is ok (status in the range 200-299)
+                const nodeList = document.getElementById('node-list');
+                nodeList.innerHTML = ''; // Clear existing content
+
+                const listItem = document.createElement('li');
+                if (response.ok) {
+                    listItem.textContent = `Status: Online`;
+                    listItem.classList.add('online');
+                } else {
+                    listItem.textContent = `Status: Offline`;
+                    listItem.classList.add('offline');
+                }
+                nodeList.appendChild(listItem);
+            } catch (error) {
+                console.error('Error checking server status:', error);
+                const nodeList = document.getElementById('node-list');
+                nodeList.innerHTML = ''; // Clear existing content
+
+                const listItem = document.createElement('li');
+                listItem.textContent = `Status: Offline (Error occurred)`;
+                listItem.classList.add('offline');
+                nodeList.appendChild(listItem);
+            }
+        }
+
+        // Call the function to check server status when the page loads
+        window.onload = checkServerStatus;
+    </script>
+</body>
+</html>

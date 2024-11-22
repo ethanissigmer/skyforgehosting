@@ -1,133 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkyForge Hosting</title>
-  <link rel="stylesheet" href="style.css">
-  
-<meta content="SkyForge Hosting" property="og:title" />
-<meta content="SkyForge Hosting provides affordable Discord bot hosting and Minecraft hosting services. We offer paid Discord bot hosting plans, making it easier for smaller developers to get started. Explore our reliable and budget-friendly hosting solutions today." property="og:description" />
-<meta content="https://skyforgehosting.xyz/" property="og:url" />
-<meta content="https://skyforgehosting.xyz/skyforge.png" property="og:image" />
-<meta content="#301934" data-react-helmet="true" name="theme-color" />
-
+  <meta charset="UTF-8" />
+  <title>SkyForge Hosting - Cheap Hosting for Discord Bots & Game Hosting!</title>
+  <meta content="SkyForge Hosting" property="og:title" />
+  <meta content="SkyForge Hosting provides affordable Discord bot hosting and Minecraft hosting services. We offer paid Discord bot hosting plans, making it easier for smaller developers to get started. Explore our reliable and budget-friendly hosting solutions today." property="og:description" />
+  <meta content="https://skyforgehosting.xyz/" property="og:url" />
+  <meta content="https://skyforgehosting.xyz/skyforge.png" property="og:image" />
+  <meta content="#301934" data-react-helmet="true" name="theme-color" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<!-- Topbar -->
-<div class="topbar">
-  <div class="logo">SkyForge Hosting</div>
-  
-  <!-- Hamburger Menu -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- <a href="/" class="logo"><img src="Images/skyforge.png" alt="SkyForge Hosting Logo" /></a> -->
+    <div id="center" class="center">
+      <a class="active" href="/">Home</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://status.skyforgehosting.xyz/">Status</a>
+    </div>
+    <div id="right" class="right ">
+      <a href="https://account.skyforgehosting.xyz/">Get Started</a>
+    </div>
+    <div class="humburger">
+      <ion-icon id="hamburger-icon" class="hamburger-icon" name="reorder-three-outline"></ion-icon>
+    </div>
   </div>
-  
-  <!-- Navigation Links -->
-  <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="https://skyforgehosting.xyz/rules">Rules</a></li>
-    <li><a href="https://discord.gg/ksDEB4H7Xd">Game Servers</a></li>
-    <li><a href="https://discord.gg/ksDEB4H7Xd">Project/Bot Hosting</a></li>
-    <!-- <li><a href="#">DDoS Protection</a></li> -->
-  </ul>
-</div>
+  <!-- Gradient Circle -->
+  <div class="gradient-circle" id="gradient-one"></div>
+  <!-- Section One -->
 
-
-  <!-- Main Banner Section -->
-  <section class="banner">
-    <div class="game-banner" id="gameBanner">
-        <img id="gameImage" src="https://pbs.twimg.com/media/CKsDQ0cUEAA6guR.png:large" alt="Rust Hosting Banner">
-        <div class="game-info-overlay">
-            <h1 id="gameTitle">Minecraft Hosting</h1>
-            <p id="gameQuote">Seamless Minecraft hosting for multiplayer fun.</p>
-            <a href="https://discord.gg/ksDEB4H7Xd" class="buy-btn">Buy Now</a>
-        </div>
-    </div>
-    <div class="game-selector">
-        </button> -->
-        <button class="game-btn" onclick="selectGame('Minecraft')">
-            <img src="https://m.media-amazon.com/images/M/MV5BYWIzYjUzMGUtZjJlNy00MWVlLWJjNGEtODU1OWFiOWIwOTFjXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg" alt="Minecraft Button">
-        </button>
-        <button class="game-btn" onclick="selectGame('FiveM')">
-            <img src="https://img.utdstc.com/icon/bcb/fc5/bcbfc5ae3d074d8734b9f51e64f7e95d4325485e0c51661dcf3167e45d768a8d:200" alt="FiveM Button">
-        </button>
-    </div>
-</section>
-
-<!-- Services Section with Title -->
-<section class="services-container">
-    <h1 class="section-title">Services</h1>
-    <div class="services">
-      <div class="service-card">
-        <h2>Game Hosting</h2>
-        <p class="price">Starting from <strong>£9/month</strong></p>
-        <ul class="specs">
-          <li>● High-performance servers</li>
-          <li>● SSD Storage</li>
-          <li>● Unlimited Bandwidth</li>
-        </ul>
-        <a href="https://discord.gg/ksDEB4H7Xd" class="view-pricing">View Pricing →</a>
+  <section class="section-hero">
+    <div class="section-left">
+      <h1 class="section-heading">Powerful servers for cheap.</h1>
+      <p class="section-paragraph">Start now for free! No catches.</p>
+      <div class="section-buttons">
+        <button id="get-started"><a href="https://account.skyforgehosting.cc/" target="_blank">Get Started</a></button>
+        <button id="support-button"><a href="https://discord.gg/VvwwC6ktUA" target="_blank">Support</a></button>
       </div>
-  
-  
-      <div class="service-card">
-        <h2>Project/Bot Hosting</h2>
-        <p class="price">Starting from <strong>£5/month</strong></p>
-        <ul class="specs">
-          <li>● Ultimate Customization</li>
-          <li>● 24/7 Support</li>
-          <li>● Lots of different types of servers</li>
-        </ul>
-        <a href="https://discord.gg/ksDEB4H7Xd" class="view-pricing">View Pricing →</a>
-      </div>
+    </div>
+    <div class="section-right">
+      <img src="Images/skyforge.png" alt="Logo" />
     </div>
   </section>
+  <div class="gradient-circle" id="gradient-two"></div>
+  <div class="gradient-circle" id="gradient-four"></div>
 
-  
-  <!-- FAQ Section -->
-<section class="faq-container">
-  <h1 class="faq-title">Frequently Asked Questions</h1>
-  <div class="faq-item">
-    <button class="faq-question">What is SkyForge Hosting?</button>
-    <div class="faq-answer">
-      <p>SkyForge Hosting is a fast, reliable hosting service that provides strong DDOS Protection and also fast servers and the best uptime.</p>
+  <!-- Section Two -->
+
+  <section id="pricing" class="section-two">
+    <h2>Pricing</h2>
+    <hr />
+
+    <div class="card-container">
+      <div class="card">
+        <h3>Free Plan</h3>
+        <h2 class="price">0$</h2>
+        <div class="features">
+          <p style="color: white;">0.3 vCores</p>
+          <p style="color: white;">200 MB RAM</p>
+          <p style="color: white;">500 MB Storage</p>
+        </div>
+        <div class="button-container">
+          <button><a href="https://account.skyforgehosting.cc/" target="_blank">Get Started</a></button><br>
+          <!-- <a href="./compare-free.png" style="color: white; text-decoration: underline; font-weight: bold;">Compare free plan</a> -->
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Paid Plans</h3>
+        <h2 class="price"><span  id="total-price"></span> <small id="plan-length-value">/Monthly</small></h2>
+        <div class="dropdowns">
+          <div>
+            <label for="plan-length">Plan Length:</label>
+            <select id="plan-length">
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+
+          <div class="server-type">
+            <label for="server-type">Server Type:</label>
+            <select  name="forma" id="server-type" size="1">
+              <option value="minecraft-vanilla">Minecraft Java - Vanilla</option>
+              <option value="minecraft-paper">Minecraft Java - Paper</option>
+              <option value="nodejs">NodeJS</option>
+              <option value="python">Python</option>
+              <!-- <option value="vps">VPS</option> -->
+              <option value="c#">C#</option>
+              <option value="java">Java</option>
+              <option value="rust">Rust</option>
+              <option value="palword">Palworld</option>
+            </select>
+          </div>
+        </div>
+        <div class="slider-container">
+          <div class="range">
+            <div class="sliderValue">
+              <span id="ram-value" class="show">1 GB</span>
+            </div>
+            <div class="field">
+              <div class="value left"></div>
+              <input
+                id="ram-slider"
+                  type="range"
+                  min="1"
+                  max="32"
+                  value="1"
+                  steps="1"
+                  orient="vertical"
+                />
+            </div>
+            <div class="value-right" style="color: white;">RAM</div>
+          </div>
+          <div class="range">
+            <div class="sliderValue storage-value">
+              <span id="storage-value" class="show">5 GB</span>
+            </div>
+            <div class="field">
+              <div class="value left"></div>
+              <input
+                id="storage-slider"
+                  type="range"
+                  min="1"
+                  max="300"
+                  value="5"
+                  steps="1"
+                  orient="vertical"
+                />
+            </div>
+            <div class="value-right" style="color: white;">Storage</div>
+          </div>
+          <div class="range">
+            <div class="sliderValue">
+              <span id="backups-value" class="show">1</span>
+            </div>
+            <div class="field">
+              <div class="value left"></div>
+              <input
+                id="backups-slider"
+                  type="range"
+                  min="1"
+                  max="20"
+                  value="0"
+                  steps="2"
+                  orient="vertical"
+                />
+            </div>
+            <div class="value-right" style="color: white;">vCore</div>
+          </div>
+        </div>
+
+
+        <div class="features-paid-plans">
+          <p style="color: white;">Unmetered Bandwidth</p>
+          <p style="color: white;">Premium Support (Faster)</p>
+          <p style="color: white;">Paid Node (Less downtime)</p>
+          <p style="color: white;">Two Backup Slots</p>
+          <p style="color: white;">Two MySQL Databases</p>
+          <p style="color: white;">Less <a href="https://skyforgehosting.xyz/serverrules">Rules</a></p>
+        </div>
+        <div class="button-container">
+          <button  id="purchase-btn">Purchase</button><br>
+          <h3 style="color: yellow; text-decoration: underline; font-weight: bold; font-size: 150%;"><a href="./refundpol/">2 Day
+            Money Back Guarantee*</a></h3>
+          <br>
+          <!-- <a href="./compare-mc-monthly.png" style="color: white; text-decoration: underline;">Compare monthly plan (Minecraft)</a><br>
+          <a href="./compare-dsc-monthly.png" style="color: white; text-decoration: underline;">Compare monthly plan (NodeJS/Python)</a> -->
+        </div>
+        <div id="purchase-popup" class="popup">
+          <div class="popup-content">
+            <span class="close">&times;</span>
+            <h4>Please copy and paste the following information into an #purchase ticket in the SkyForge Hosting Discord Server.
+            </h4>
+            <p id="purchase-info"></p>
+            <p>If you are not yet in the Discord Server, you can join here:</p>
+            <a href="https://discord.gg/VvwwC6ktUA" target="_blank"
+              class="discord-btn">Discord</a>
+          </div>
+
+        </div>
+
+      </div>
+
+
     </div>
-  </div>
+  </section>
+  <div class="gradient-circle" id="gradient-three"></div>
 
-  <div class="faq-item">
-    <button class="faq-question">How do I contact support?</button>
-    <div class="faq-answer">
-      <p>You can reach our support team via email at support@skyforgehosting.xyz, or through our Discord channel for real-time assistance.</p>
+  <!-- section three
+
+  <section class="section-three">
+    <h2>Our Partners</h2>
+    <hr />
+
+    <div class="partners">
+      <div class="partner">
+        <a href="https://kaneproductions.co.uk/"><img src="Images/kane.png" alt="Kane Productions https://kaneproductions.co.uk/" /></a>
+      </div>
+      <div class="partner">
+        <a href="https://discord.com/oauth2/authorize?client_id=764726231891312670&scope=bot&permissions=277431479654"><img src="Images/exy.png" alt="Exynos" /></a>
+      </div>
+      <div class="partner">
+        <a href="https://discord.com/oauth2/authorize?client_id=1015531247721779230&scope=bot%20applications.commands&permissions=414530791768"> <img src="Images/wave.png" alt="Wave" /></a>
+      </div>
+
+
     </div>
-  </div>
+  </section>
+                               -->
+                               
+  <!-- Section Four -->
+<section class="section-four">
+  <h2 onclick="toggleFAQ()">
+    FAQ <span><ion-icon name="chevron-down-outline"></ion-icon></span>
+  </h2>
+  <hr />
+  <div class="faq-card" id="faq-card">
+    <div class="faqCard">
+      <div class="faq-item">
+        <h3 class="faq-question">1. Are there any catches?</h3>
+        <p class="faq-answer">
+          Unlike some other free hosts, we don't force you to renew servers, and we don't require credit card or phone
+          verification.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">2. Are my files safe?</h3>
+        <p class="faq-answer">
+          Unless there is corruption, SkyForge Hosting shutting down, or legal requirements, we will never randomly delete
+          your files.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">3. How is it so cheap?</h3>
+        <p class="faq-answer">
+          We spend less money on addons and support, so support may be slower in some cases, but because of that, we can
+          offer prices 3x cheaper than top hosts.
+        </p>
+      </div>
 
-  <div class="faq-item">
-    <button class="faq-question">What payment methods do you accept?</button>
-    <div class="faq-answer">
-      <p>We accept PayPal.</p>
+      <div class="faq-item">
+        <h3 class="faq-question">4. Is my server 24/7?</h3>
+        <p class "faq-answer">
+          We do not stop your server after a certain amount of time, and we aim for 99% or more uptime on nodes and
+          panels.
+        </p>
+      </div>
+      <!-- <div class="faq-item">
+        <h3 class="faq-question">5. Why should I trust you?</h3>
+        <p class="faq-answer">
+          We have good reviews on Trustpilot, and we are partnered with many verified Discord bots. We have also been
+          running for 10+ months with a good reputation!
+        </p>
+      </div> -->
+      <div class="faq-item">
+        <h3 class="faq-question">5. Do you have support?</h3>
+        <p class="faq-answer">
+          We have over 1 support agent online on average and try to provide the best support possible! We also offer
+          coding help to paid customers for NodeJS and Python.
+        </p>
+      </div>
     </div>
   </div>
 </section>
-  
-  <!-- Footer Section -->
-  <footer>
-    <div class="footer-content">
-      <p>© Bandit Host</p>
-      <div class="social-icons">
-        <a href="https://discord.gg/ksDEB4H7Xd"><img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="Discord Logo"></a>
-        <!-- <a href="#"><img src="https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1726099200&semt=ais_hybrid" alt="X Logo"></a> -->
-      </div>
-      <div class="emails">
-        <a href="mailto:support@skyforgehosting.xyz">support@skyforgehosting.xyz</a>
-        <a href="mailto:legal@skyforgehosting.xyz">legal@skyforgehosting.xyz</a>
-        <a href="mailto:corporate@skyforgehosting.xyz">corporate@skyforgehosting.xyz</a>
-      </div>      
-    </div>
-  </footer>
 
-  <script src="script.js"></script>
+
+
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script src="js/app.js"></script>
 </body>
+
 </html>

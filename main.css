@@ -1,0 +1,19 @@
+* {
+    text-align: center;
+    color: #a7a7a7;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .command {
+    background-color: #333;
+    color: #fff;
+    font-family: Consolas, monospace;
+    padding: 4px 8px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  html {
+    background: linear-gradient(to left, #020255, #61045f);
+    background-size: 100%;
+  }

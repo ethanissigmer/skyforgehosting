@@ -7,9 +7,9 @@
 }
 
 :root {
-  --background: #02021b;
-  --background-card: #01042c;
-  --forground: #b300b3;
+  --background: #04021b;
+  --background-card: #06012c;
+  --forground: #b30086;
   --forground-btn: #db6e00;
   --step--2: clamp(0.78rem, calc(0.77rem + 0.03vw), 0.8rem);
   --step--1: clamp(0.94rem, calc(0.92rem + 0.11vw), 1rem);

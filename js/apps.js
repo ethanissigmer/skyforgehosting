@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Pricing structure for different tiers
   const pricingStructure = {
-    normal: {
+    minecraft: {
       "Wood Tier": { ram: 4, vCores: 2, storage: 60, price: 9 },
       "Stone Tier": { ram: 8, vCores: 4, storage: 120, price: 15 },
       "Diamond Tier": { ram: 16, vCores: 8, storage: 240, price: 29 },
@@ -115,6 +115,49 @@ document.addEventListener("DOMContentLoaded", function () {
   planLengthDropdown.addEventListener("change", function () {
     updateTotalPrice();
   });
+
+  function openPopup() {
+    const serverType = serverTypeDropdown.value;
+    const selectedTier = tierSelect.value;
+    const pricing = pricingStructure[serverType]?.[selectedTier]; // Get pricing details for selected tier
+  
+    if (!pricing) {
+      alert("Please select a valid tier before purchasing.");
+      return;
+    }
+  
+    const ramGB = pricing.ram;
+    const storageGB = pricing.storage;
+    const vCores = pricing.vCores; // Use vCores as backups
+    const planLength = planLengthDropdown.value;
+  
+    // Calculate total price based on selected plan length
+    let total = pricing.price;
+  
+    if (planLength === "quarterly") {
+      total *= 1.7; // Adjust for quarterly plan
+    } else if (planLength === "yearly") {
+      total *= 2.6; // Adjust for yearly plan
+    }
+  
+    totalPriceElement.textContent = `Total Price: £${total.toFixed(2)}`;
+  
+    // Display purchase information in the popup
+    purchaseInfo.textContent = `Purchase: ${ramGB} GB RAM, ${storageGB} GB storage, ${vCores} vCores, ${serverType} Server || Final Price: £${total.toFixed(2)} / ${planLength}`;
+  
+    popup.style.display = "block"; // Show the popup
+  
+    // Disable purchase button if server type is VPS
+    purchaseButton.disabled = (serverType === "vps");
+  }
+  
+  function closePurchasePopup() {
+    popup.style.display = "none"; // Close the popup
+  }
+  
+  // Add event listener for purchase button
+  purchaseButton.addEventListener("click", openPopup);
+  closePopup.addEventListener("click", closePurchasePopup);
 
   // Initial setup
   populateTierDropdown(); // Populate tiers on page load

@@ -1,211 +1,121 @@
-const hamburgerIcon = document.getElementById("hamburger-icon");
-const centeritems = document.getElementById("center");
-const rightitems = document.getElementById("right");
-const scrollFooter = document.getElementById("footer");
-
-function toggleFAQ() {
-  var faqCard = document.getElementById("faq-card");
-  var faqHeader = document.querySelector(".section-four h2");
-
-  if (faqCard.classList.contains("show")) {
-    faqCard.classList.remove("show");
-    faqCard.classList.add("close-animation");
-    faqHeader.querySelector("ion-icon").style.transform = "rotate(0deg)";
-    setTimeout(function () {
-      faqCard.style.display = "none";
-      faqCard.classList.remove("close-animation");
-    }, 500);
-  } else {
-    faqCard.style.display = "block";
-    faqCard.classList.add("show");
-    faqHeader.querySelector("ion-icon").style.transform = "rotate(180deg)";
-  }
-}
-
-function closeFooter() {
-  var close = document.getElementById("footer");
-  close.style.display = "none";
-  setInterval(() => {
-    close.style.display = "block";
-  }, 1800000); // Executes every 1,800,000 milliseconds (30 minutes)
-}
-
-// Listen for scroll events to show/hide the footer
-window.addEventListener("scroll", () => {
-  if (scrollFooter.style.display !== "none") {
-    scrollFooter.style.bottom = "0";
-  }
-});
-
-// Navbar Script
-hamburgerIcon.addEventListener("click", function () {
-  if (centeritems.style.display === "none") {
-    centeritems.style.display = "block";
-    rightitems.className = "responsive-nav";
-    rightitems.style.display = "block";
-  } else {
-    centeritems.style.display = "none";
-    rightitems.style.display = "none";
-  }
-});
-
-// Get the sliders
-const ramSlider = document.getElementById("ram-slider");
-const storageSlider = document.getElementById("storage-slider");
-const backupsSlider = document.getElementById("backups-slider");
-
-// Get the value display elements
-const ramValue = document.getElementById("ram-value");
-const storageValue = document.getElementById("storage-value");
-const backupsValue = document.getElementById("backups-value");
-const planLengthValue = document.getElementById("plan-length-value");
-
-// Get the plan length and server type dropdowns
-const planLengthDropdown = document.getElementById("plan-length");
-const serverTypeDropdown = document.getElementById("server-type");
-
-// Get the total price element
-const totalPriceElement = document.getElementById("total-price");
-
-// Add event listeners to update the values on slider change
-ramSlider.addEventListener("input", updateRamValue);
-storageSlider.addEventListener("input", updateStorageValue);
-backupsSlider.addEventListener("input", updateBackupsValue);
-planLengthDropdown.addEventListener("change", updateTotalPrice);
-serverTypeDropdown.addEventListener("change", updateTotalPrice);
-
-function updateRamValue() {
-  ramValue.textContent = `${ramSlider.value} GB`;
-  updateTotalPrice();
-}
-
-function updateStorageValue() {
-  storageValue.textContent = `${storageSlider.value} GB`;
-  updateTotalPrice();
-}
-
-function updateBackupsValue() {
-  backupsValue.textContent = backupsSlider.value;
-  updateTotalPrice();
-}
-
-function updateTotalPrice() {
-    const ramPrice = 0.7; // 70 cents per GB
-    const storagePrice = 0.02; // 2 cents per GB
-    const backupsPrice = 1; // $1 for backups
-  
-    const ramGB = parseInt(ramSlider.value);
-    const storageGB = parseInt(storageSlider.value);
-    const backupsCount = parseInt(backupsSlider.value);
-    const planLength = planLengthDropdown.value;
-    const serverType = serverTypeDropdown.value;
-  
-    let totalPrice = ramGB * ramPrice + storageGB * storagePrice + backupsCount * backupsPrice;
-  
-    // Increase price if server type is Minecraft
-    if (serverType.startsWith("minecraft")) {
-      totalPrice *= 1.5; // Increase the total price by 50% for Minecraft servers
-    }
-    
-    if (
-        serverType.startsWith("rust") || 
-        serverType.startsWith("palword") 
-    ) {
-        totalPrice *= 1.7; // Increase the total price by 30%
-    }
-
-    if (
-        serverType.startsWith("python") || 
-        serverType.startsWith("nodejs") || 
-        serverType.startsWith("c#") || 
-        serverType.startsWith("java")
-    ) {
-        totalPrice *= 1.3; // Increase the total price by 30%
-    }
-  
-    if (planLength === "quarterly") {
-      totalPrice *= 1.7;
-    } else if (planLength === "yearly") {
-      totalPrice *= 5.7;
-    }
-    
-    totalPriceElement.textContent = `${totalPrice.toFixed(2)}$`;
-    planLengthValue.textContent = " /" + planLength;
-  }
-  
-  // Initial calculation on page load
-  updateTotalPrice();
-  
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const centeritems = document.getElementById("center");
+  const rightitems = document.getElementById("right");
+  const totalPriceElement = document.getElementById("total-price");
   const purchaseButton = document.getElementById("purchase-btn");
   const popup = document.getElementById("purchase-popup");
   const closePopup = document.getElementsByClassName("close")[0];
   const purchaseInfo = document.getElementById("purchase-info");
-  
-  // Add event listeners
-  purchaseButton.addEventListener("click", openPopup);
-  closePopup.addEventListener("click", closePurchasePopup);
-  
-  function openPopup() {
-    const ramPrice = 0.7; // 70 cents per GB
-    const storagePrice = 0.02; // 2 cents per GB
-    const backupsPrice = 1; // $1 for backups
-  
-    const ramGB = parseInt(ramSlider.value);
-    const storageGB = parseInt(storageSlider.value);
-    const backupsCount = parseInt(backupsSlider.value);
-    const planLength = planLengthDropdown.value;
+
+  // Pricing structure for different tiers
+  const pricingStructure = {
+    normal: {
+      "Wood Tier": { ram: 4, vCores: 2, storage: 60, price: 9 },
+      "Stone Tier": { ram: 8, vCores: 4, storage: 120, price: 15 },
+      "Diamond Tier": { ram: 16, vCores: 8, storage: 240, price: 29 },
+      "Netherite Tier": { ram: 24, vCores: 12, storage: 480, price: 49 },
+    },
+    fivem: {
+      "Basic Tier": { ram: 4, vCores: 2, storage: 60, price: 6.30 },
+      "Standard Tier": { ram: 8, vCores: 4, storage: 100, price: 12 },
+      "Advanced Tier": { ram: 12, vCores: 6, storage: 150, price: 17 },
+      "Pro Tier": { ram: 16, vCores: 8, storage: 200, price: 24 },
+      "Elite Tier": { ram: 24, vCores: 10, storage: 300, price: 37 },
+      "Ultimate Tier": { ram: 32, vCores: 12, storage: 400, price: 50 },
+      "Premium Tier": { ram: 48, vCores: 20, storage: 600, price: 72 },
+    },
+    projectBot: {
+      "Small Project/Bot Package": { ram: 1, vCores: 1, storage: 5, price: 5 },
+      "Medium Project/Bot Package": { ram: 2, vCores: 1, storage: 10, price: 10 },
+      "Large Project/Bot Package": { ram: 4, vCores: 2, storage: 20, price: 20 },
+      "Advanced Project/Bot Package": { ram: 8, vCores: 4, storage: 40, price: 40 },
+    },
+  };
+
+  // Get dropdown elements for the tier selection
+  const tierSelect = document.getElementById("tier-select");
+  const planLengthDropdown = document.getElementById("plan-length");
+  const serverTypeDropdown = document.getElementById("server-type");
+
+  // Function to populate tier dropdown based on selected server type
+  function populateTierDropdown() {
     const serverType = serverTypeDropdown.value;
-  
-    let total = ramGB * ramPrice + storageGB * storagePrice + backupsCount * backupsPrice;
-  
-    // Increase price if server type is Minecraft
-    if (serverType.startsWith("minecraft")) {
-      total *= 1.5; // Increase the total price by 50% for Minecraft servers
+    tierSelect.innerHTML = ""; // Clear existing options
+
+    // Populate tier options based on the selected server type
+    for (const tier in pricingStructure[serverType]) {
+      const option = document.createElement("option");
+      option.value = tier;
+      option.textContent = tier;
+      tierSelect.appendChild(option);
     }
 
-    if (serverType.startsWith("rust")) {
-        total *= 1.7
-    }
-
-    if (serverType.startsWith("palw")) {
-        total *= 1.7
-    }
-
-    if (
-        serverType.startsWith("python") || 
-        serverType.startsWith("nodejs") || 
-        serverType.startsWith("c#") || 
-        serverType.startsWith("java")
-    ) {
-        total *= 1.3; // Increase the total price by 30%
-    }
-  
-    if (planLength === "quarterly") {
-      total *= 1.7;
-    } else if (planLength === "yearly") {
-      total *= 5.7;
-    }
-  
-    totalPriceElement.textContent = `$ ${total.toFixed(2)}`;
-  
-    purchaseInfo.textContent = `Purchase: ${ramGB} GB RAM, ${storageGB} GB storage, ${backupsCount} CPU vCores, ${serverType} Server || Final Price: ${total.toFixed(
-      2
-    )}$ /${planLength}`;
-  
-    popup.style.display = "block";
-  }
-  
-  // Close the purchase popup
-  function closePurchasePopup() {
-    popup.style.display = "none";
+    // Update specs and total price when the server type changes
+    updateSpecsDisplay();
+    updateTotalPrice();
   }
 
-const dropdown = document.getElementById("server-type");
+  // Function to update the displayed specifications based on the selected tier
+  function updateSpecsDisplay() {
+    const serverType = serverTypeDropdown.value;
+    const selectedTier = tierSelect.value;
 
-dropdown.addEventListener("change", function () {
-  const selectedOption = dropdown.options[dropdown.selectedIndex];
+    // Get the pricing details for the selected tier
+    const pricing = pricingStructure[serverType]?.[selectedTier]; // Use optional chaining
 
-  if (selectedOption.value === "vps") {
-    window.open("/vps.html", "_blank");
+    // Display the specifications
+    const specsDisplay = document.getElementById("specs-display");
+    if (pricing) {
+      specsDisplay.textContent = `Specifications: ${pricing.ram} GB RAM | ⚙️ ${pricing.vCores} vCores | 💾 ${pricing.storage} GB SSD | 💸 £${pricing.price.toFixed(2)}`;
+    } else {
+      specsDisplay.textContent = "Select a tier to see the specifications.";
+    }
+ }
+
+  // Function to update the total price based on selected tier and plan length
+  function updateTotalPrice() {
+    const serverType = serverTypeDropdown.value;
+    const selectedTier = tierSelect.value;
+
+    // Get the pricing details for the selected tier
+    const pricing = pricingStructure[serverType]?.[selectedTier]; // Use optional chaining
+
+    // Check if pricing is defined
+    if (!pricing) {
+      totalPriceElement.textContent = "Please select a valid tier.";
+      return; // Exit the function if pricing is not available
+    }
+
+    let totalPrice = pricing.price;
+
+    // Adjust total price based on plan length
+    if (planLengthDropdown.value === "quarterly") {
+      totalPrice *= 1.5; // Example adjustment for quarterly plans
+    } else if (planLengthDropdown.value === "semi-annual") {
+      totalPrice *= 2.5; // Example adjustment for semi-annual plans
+    } else if (planLengthDropdown.value === "annual") {
+      totalPrice *= 4.5; // Example adjustment for annual plans
+    }
+
+    // Update the total price display
+    totalPriceElement.textContent = `Total Price: £${totalPrice.toFixed(2)}`;
   }
+
+  // Event listeners for dropdown changes
+  serverTypeDropdown.addEventListener("change", function () {
+    populateTierDropdown();
+  });
+
+  tierSelect.addEventListener("change", function () {
+    updateSpecsDisplay();
+    updateTotalPrice();
+  });
+
+  planLengthDropdown.addEventListener("change", function () {
+    updateTotalPrice();
+  });
+
+  // Initial setup
+  populateTierDropdown(); // Populate tiers on page load
 });

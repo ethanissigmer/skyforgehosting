@@ -9,7 +9,7 @@
   <meta content="https://skyforgehosting.xyz/" property="og:url" />
   <meta content="https://skyforgehosting.xyz/skyforge.png" property="og:image" />
   <meta content="#301934" data-react-helmet="true" name="theme-color" />
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -53,25 +53,11 @@
   <section id="pricing" class="section-two">
     <h2>Pricing</h2>
     <hr />
-
+  
     <div class="card-container">
       <div class="card">
-        <h3>Free Plan</h3>
-        <h2 class="price">0$</h2>
-        <div class="features">
-          <p style="color: white;">0.3 vCores</p>
-          <p style="color: white;">200 MB RAM</p>
-          <p style="color: white;">500 MB Storage</p>
-        </div>
-        <div class="button-container">
-          <button><a href="https://account.skyforgehosting.xyz/" target="_blank">Get Started</a></button><br>
-          <!-- <a href="./compare-free.png" style="color: white; text-decoration: underline; font-weight: bold;">Compare free plan</a> -->
-        </div>
-      </div>
-
-      <div class="card">
         <h3>Paid Plans</h3>
-        <h2 class="price"><span  id="total-price"></span> <small id="plan-length-value">/Monthly</small></h2>
+        <h2 class="price"><span id="total-price"></span> <small id="plan-length-value">/Monthly</small></h2>
         <div class="dropdowns">
           <div>
             <label for="plan-length">Plan Length:</label>
@@ -81,112 +67,56 @@
               <option value="yearly">Yearly</option>
             </select>
           </div>
-
+  
           <div class="server-type">
             <label for="server-type">Server Type:</label>
-            <select  name="forma" id="server-type" size="1">
-              <option value="minecraft-vanilla">Minecraft Java - Vanilla</option>
-              <option value="minecraft-paper">Minecraft Java - Paper</option>
-              <option value="nodejs">NodeJS</option>
-              <option value="python">Python</option>
-              <!-- <option value="vps">VPS</option> -->
-              <option value="c#">C#</option>
-              <option value="java">Java</option>
-              <option value="rust">Rust</option>
-              <option value="palword">Palworld</option>
+            <select name="forma" id="server-type" size="1">
+              <option value="normal">Minecraft Hosting</option>
+              <option value="fivem">FiveM Hosting</option>
+              <option value="projectBot">Project/Bot Hosting</option>
             </select>
           </div>
         </div>
-        <div class="slider-container">
-          <div class="range">
-            <div class="sliderValue">
-              <span id="ram-value" class="show">1 GB</span>
-            </div>
-            <div class="field">
-              <div class="value left"></div>
-              <input
-                id="ram-slider"
-                  type="range"
-                  min="1"
-                  max="32"
-                  value="1"
-                  steps="1"
-                  orient="vertical"
-                />
-            </div>
-            <div class="value-right" style="color: white;">RAM</div>
-          </div>
-          <div class="range">
-            <div class="sliderValue storage-value">
-              <span id="storage-value" class="show">5 GB</span>
-            </div>
-            <div class="field">
-              <div class="value left"></div>
-              <input
-                id="storage-slider"
-                  type="range"
-                  min="1"
-                  max="300"
-                  value="5"
-                  steps="1"
-                  orient="vertical"
-                />
-            </div>
-            <div class="value-right" style="color: white;">Storage</div>
-          </div>
-          <div class="range">
-            <div class="sliderValue">
-              <span id="backups-value" class="show">1</span>
-            </div>
-            <div class="field">
-              <div class="value left"></div>
-              <input
-                id="backups-slider"
-                  type="range"
-                  min="1"
-                  max="20"
-                  value="0"
-                  steps="2"
-                  orient="vertical"
-                />
-            </div>
-            <div class="value-right" style="color: white;">vCore</div>
+  
+        <!-- Tier Selection Dropdown -->
+        <div class="dropdowns">
+          <div>
+            <label for="tier-select">Select Tier:</label>
+            <select id="tier-select">
+              <!-- Options will be populated based on server type selection -->
+            </select>
           </div>
         </div>
-
-
+        
+        <!-- Specifications Display Area -->
+        <div id="tier-specs" style="margin-top: 10px; color: white;">
+          <p id="specs-display">Select a tier to see the specifications.</p>
+        </div>
+  
         <div class="features-paid-plans">
           <p style="color: white;">Unmetered Bandwidth</p>
           <p style="color: white;">Premium Support (Faster)</p>
           <p style="color: white;">Paid Node (Less downtime)</p>
-          <p style="color: white;">Two Backup Slots</p>
-          <p style="color: white;">Two MySQL Databases</p>
+          <!-- <p style="color: white;">Two Backup Slots</p>
+          <p style="color: white;">Two MySQL Databases</p> -->
           <p style="color: white;">Less <a href="https://skyforgehosting.xyz/serverrules">Rules</a></p>
         </div>
         <div class="button-container">
-          <button  id="purchase-btn">Purchase</button><br>
-          <h3 style="color: yellow; text-decoration: underline; font-weight: bold; font-size: 150%;"><a href="./refundpol">2 Day
-            Money Back Guarantee*</a></h3>
-          <br>
-          <!-- <a href="./compare-mc-monthly.png" style="color: white; text-decoration: underline;">Compare monthly plan (Minecraft)</a><br>
-          <a href="./compare-dsc-monthly.png" style="color: white; text-decoration: underline;">Compare monthly plan (NodeJS/Python)</a> -->
+          <button id="purchase-btn">Purchase</button><br>
+          <h3 style="color: yellow; text-decoration: underline; font-weight: bold; font-size: 150%;">
+            <a href="./refundpol.html/">2 Day Money Back Guarantee*</a>
+          </h3>
         </div>
         <div id="purchase-popup" class="popup">
           <div class="popup-content">
             <span class="close">&times;</span>
-            <h4>Please copy and paste the following information into an #purchase ticket in the SkyForge Hosting Discord Server.
-            </h4>
+            <h4>Please copy and paste the following information into an #purchase ticket in the SkyForge Hosting Discord Server.</h4>
             <p id="purchase-info"></p>
             <p>If you are not yet in the Discord Server, you can join here:</p>
-            <a href="https://discord.gg/VvwwC6ktUA" target="_blank"
-              class="discord-btn">Discord</a>
+            <a href="https://discord.gg/VvwwC6ktUA" target="_blank" class="discord-btn">Discord</a>
           </div>
-
         </div>
-
       </div>
-
-
     </div>
   </section>
   <div class="gradient-circle" id="gradient-three"></div>

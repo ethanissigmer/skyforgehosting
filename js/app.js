@@ -90,12 +90,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let totalPrice = pricing.price;
 
     // Adjust total price based on plan length
-    if (planLengthDropdown.value === "quarterly") {
-      totalPrice *= 1.5; // Example adjustment for quarterly plans
-    } else if (planLengthDropdown.value === "semi-annual") {
-      totalPrice *= 2.5; // Example adjustment for semi-annual plans
-    } else if (planLengthDropdown.value === "annual") {
-      totalPrice *= 4.5; // Example adjustment for annual plans
+    if (planLengthDropdown.value === "monthly") {
+      totalPrice *= 1; // Example adjustment for quarterly plans
+    } else if (planLengthDropdown.value === "quarterly") {
+      totalPrice *= 1.7; // Example adjustment for semi-annual plans
+    } else if (planLengthDropdown.value === "yearly") {
+      totalPrice *= 2.6; // Example adjustment for annual plans
     }
 
     // Update the total price display

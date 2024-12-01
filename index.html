@@ -15,23 +15,24 @@
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <<a href="/" class="logo"><img src="Images/skyforgebanner.png" alt="SkyForge Hosting Logo" /></a>
+    <a href="/" class="logo"><img src="Images/skyforgebanner.png" alt="SkyForge Hosting Logo" /></a>
     <div id="center" class="center">
       <a class="active" href="/">Home</a>
       <a href="#pricing">Pricing</a>
       <a href="https://status.skyforgehosting.xyz/">Status</a>
     </div>
-    <div id="right" class="right ">
+    <div id="right" class="right">
       <a href="https://account.skyforgehosting.xyz/">Get Started</a>
     </div>
     <div class="humburger">
       <ion-icon id="hamburger-icon" class="hamburger-icon" name="reorder-three-outline"></ion-icon>
     </div>
   </div>
+  
   <!-- Gradient Circle -->
   <div class="gradient-circle" id="gradient-one"></div>
+  
   <!-- Section One -->
-
   <section class="section-hero">
     <div class="section-left">
       <h1 class="section-heading">Powerful servers for cheap.</h1>
@@ -45,31 +46,31 @@
       <img src="Images/skyforge.png" alt="Logo" />
     </div>
   </section>
+  
   <div class="gradient-circle" id="gradient-two"></div>
   <div class="gradient-circle" id="gradient-four"></div>
 
   <!-- Section Two -->
-
   <section id="pricing" class="section-two">
     <h2>Pricing</h2>
     <hr />
-
+    
     <div class="card-container">
+      <!-- Free Plan Card -->
       <div class="card">
-          <h3>Free Plan</h3>
-          <h2 class="price">0$</h2>
-          <div class="features">
-            <p style="color: white;">0.3 vCores</p>
-            <p style="color: white;">200 MB RAM</p>
-            <p style="color: white;">500 MB Storage</p>
-          </div>
-          <div class="button-container">
-            <button><a href="https://account.skyforgehosting.xyz/" target="_blank">Get Started</a></button><br>
-  <!--           <a href="./compare-free.png" style="color: white; text-decoration: underline; font-weight: bold;">Compare free plan</a> -->
-          </div>
+        <h3>Free Plan</h3>
+        <h2 class="price">0$</h2>
+        <div class="features">
+          <p style="color: white;">0.3 vCores</p>
+          <p style="color: white;">200 MB RAM</p>
+          <p style="color: white;">500 MB Storage</p>
         </div>
-    <div>
-    <div class="card-container">
+        <div class="button-container">
+          <button><a href="https://account.skyforgehosting.xyz/" target="_blank">Get Started</a></button>
+        </div>
+      </div>
+
+      <!-- Paid Plans Card -->
       <div class="card">
         <h3>Paid Plans</h3>
         <h2 class="price"><span id="total-price"></span> <small id="plan-length-value">/Monthly</small></h2>
@@ -77,12 +78,11 @@
           <div>
             <label for="plan-length">Plan Length:</label>
             <select id="plan-length">
-              <option value="monthly">Monthly</option>
+              <option value "monthly">Monthly</option>
               <option value="quarterly">Quarterly</option>
               <option value="yearly">Yearly</option>
             </select>
           </div>
-  
           <div class="server-type">
             <label for="server-type">Server Type:</label>
             <select name="forma" id="server-type" size="1">
@@ -92,7 +92,7 @@
             </select>
           </div>
         </div>
-  
+        
         <!-- Tier Selection Dropdown -->
         <div class="dropdowns">
           <div>
@@ -107,21 +107,21 @@
         <div id="tier-specs" style="margin-top: 10px; color: white;">
           <p id="specs-display">Select a tier to see the specifications.</p>
         </div>
-  
+        
         <div class="features-paid-plans">
           <p style="color: white;">Unmetered Bandwidth</p>
           <p style="color: white;">Premium Support (Faster)</p>
           <p style="color: white;">Paid Node (Less downtime)</p>
-          <!-- <p style="color: white;">Two Backup Slots</p>
-          <p style="color: white;">Two MySQL Databases</p> -->
           <p style="color: white;">Less <a href="https://skyforgehosting.xyz/serverrules">Rules</a></p>
         </div>
+        
         <div class="button-container">
-          <button id="purchase-btn">Purchase</button><br>
+          <button id="purchase-btn">Purchase</button>
           <h3 style="color: yellow; text-decoration: underline; font-weight: bold; font-size: 150%;">
             <a href="./refundpol">2 Day Money Back Guarantee*</a>
           </h3>
         </div>
+        
         <div id="purchase-popup" class="popup">
           <div class="popup-content">
             <span class="close">&times;</span>
@@ -134,91 +134,70 @@
       </div>
     </div>
   </section>
+  
   <div class="gradient-circle" id="gradient-three"></div>
 
-  <!-- section three
-
+  <!-- Section Three -->
   <section class="section-three">
     <h2>Our Partners</h2>
     <hr />
-
     <div class="partners">
       <div class="partner">
-        <a href="https://kaneproductions.co.uk/"><img src="Images/kane.png" alt="Kane Productions https://kaneproductions.co.uk/" /></a>
+        <a href="https://kaneproductions.co.uk/"><img src="Images/kane.png" alt="Kane Productions" /></a>
       </div>
       <div class="partner">
         <a href="https://discord.com/oauth2/authorize?client_id=764726231891312670&scope=bot&permissions=277431479654"><img src="Images/exy.png" alt="Exynos" /></a>
       </div>
       <div class="partner">
-        <a href="https://discord.com/oauth2/authorize?client_id=1015531247721779230&scope=bot%20applications.commands&permissions=414530791768"> <img src="Images/wave.png" alt="Wave" /></a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1015531247721779230&scope=bot%20applications.commands&permissions=414530791768"><img src="Images/wave.png" alt="Wave" /></a>
       </div>
-
-
     </div>
   </section>
-                               -->
-                               
-  <!-- Section Four -->
-<section class="section-four">
-  <h2 onclick="toggleFAQ()">
-    FAQ <span><ion-icon name="chevron-down-outline"></ion-icon></span>
-  </h2>
-  <hr />
-  <div class="faq-card" id="faq-card">
-    <div class="faqCard">
-      <div class="faq-item">
-        <h3 class="faq-question">1. Are there any catches?</h3>
-        <p class="faq-answer">
-          Unlike some other free hosts, we don't force you to renew servers, and we don't require credit card or phone
-          verification.
-        </p>
-      </div>
-      <div class="faq-item">
-        <h3 class="faq-question">2. Are my files safe?</h3>
-        <p class="faq-answer">
-          Unless there is corruption, SkyForge Hosting shutting down, or legal requirements, we will never randomly delete
-          your files.
-        </p>
-      </div>
-      <div class="faq-item">
-        <h3 class="faq-question">3. How is it so cheap?</h3>
-        <p class="faq-answer">
-          We spend less money on addons and support, so support may be slower in some cases, but because of that, we can
-          offer prices 3x cheaper than top hosts.
-        </p>
-      </div>
 
-      <div class="faq-item">
-        <h3 class="faq-question">4. Is my server 24/7?</h3>
-        <p class "faq-answer">
-          We do not stop your server after a certain amount of time, and we aim for 99% or more uptime on nodes and
-          panels.
-        </p>
-      </div>
-      <!-- <div class="faq-item">
-        <h3 class="faq-question">5. Why should I trust you?</h3>
-        <p class="faq-answer">
-          We have good reviews on Trustpilot, and we are partnered with many verified Discord bots. We have also been
-          running for 10+ months with a good reputation!
-        </p>
-      </div> -->
-      <div class="faq-item">
-        <h3 class="faq-question">5. Do you have support?</h3>
-        <p class="faq-answer">
-          We have over 1 support agent online on average and try to provide the best support possible! We also offer
-          coding help to paid customers for NodeJS and Python.
-        </p>
+  <!-- Section Four -->
+  <section class="section-four">
+    <h2 onclick="toggleFAQ()">
+      FAQ <span><ion-icon name="chevron-down-outline"></ion-icon></span>
+    </h2>
+    <hr />
+    <div class="faq-card" id="faq-card">
+      <div class="faqCard">
+        <div class="faq-item">
+          <h3 class="faq-question">1. Are there any catches?</h3>
+          <p class="faq-answer">
+            Unlike some other free hosts, we don't force you to renew servers, and we don't require credit card or phone verification.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">2. Are my files safe?</h3>
+          <p class="faq-answer">
+            Unless there is corruption, SkyForge Hosting shutting down, or legal requirements, we will never randomly delete your files.
+          </p>
+        </div>
+        <div class="faq-item">
+ <h3 class="faq-question">3. How is it so cheap?</h3>
+          <p class="faq-answer">
+            We spend less money on addons and support, so support may be slower in some cases, but because of that, we can offer prices 3x cheaper than top hosts.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">4. Is my server 24/7?</h3>
+          <p class="faq-answer">
+            We do not stop your server after a certain amount of time, and we aim for 99% or more uptime on nodes and panels.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-question">5. Do you have support?</h3>
+          <p class="faq-answer">
+            We have over 1 support agent online on average and try to provide the best support possible! We also offer coding help to paid customers for NodeJS and Python.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-
-
+  </section>
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
   <script src="js/mains.js"></script>
 </body>
 

@@ -56,6 +56,24 @@ document.addEventListener("DOMContentLoaded", function () {
     updateTotalPrice();
   }
 
+  function toggleFAQ() {
+  var faqCard = document.getElementById("faq-card");
+  var faqHeader = document.querySelector(".section-four h2");
+
+  if (faqCard.classList.contains("show")) {
+    faqCard.classList.remove("show");
+    faqCard.classList.add("close-animation");
+    faqHeader.querySelector("ion-icon").style.transform = "rotate(0deg)";
+    setTimeout(function () {
+      faqCard.style.display = "none";
+      faqCard.classList.remove("close-animation");
+    }, 500);
+  } else {
+    faqCard.style.display = "block";
+    faqCard.classList.add("show");
+    faqHeader.querySelector("ion-icon").style.transform = "rotate(180deg)";
+  }
+}
   // Function to update the displayed specifications based on the selected tier
   function updateSpecsDisplay() {
     const serverType = serverTypeDropdown.value;
